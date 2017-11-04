@@ -12,4 +12,6 @@ var connection = mysql.createConnection({
   password: 'plantlife'
 });
 
-exports.connection.connect();
+
+module.exports.connection = connection;
+module.exports.somethin = {'hi': 'hi'};
