@@ -21,6 +21,13 @@ app.use(parser.json());
 // Set up our routes
 app.use('/classes', router);
 
+//set up headers
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With-Content-Type', 'Accept');
+  next();
+});
+
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));
 

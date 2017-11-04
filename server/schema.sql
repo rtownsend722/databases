@@ -2,27 +2,22 @@
 
 USE chat;
 
-CREATE TABLE users (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  username text
-);
+-- CREATE TABLE users (
+--   id int PRIMARY KEY AUTO_INCREMENT,
+--   username text
+-- );
 
-CREATE TABLE rooms (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  room text
-);
+-- CREATE TABLE rooms (
+--   id int PRIMARY KEY AUTO_INCREMENT,
+--   room text
+-- );
 
 CREATE TABLE messages (
   /* Describe your table here.*/
   id int PRIMARY KEY AUTO_INCREMENT,
   message text,
-  user_id int,
-  room_id int,
-  FOREIGN KEY(user_id)
-    REFERENCES users(id), 
-
-  FOREIGN KEY(room_id)
-    REFERENCES rooms(id)
+  username text,
+  room text
 );
 
 /*Dummy Data*/
