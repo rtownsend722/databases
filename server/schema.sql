@@ -2,15 +2,15 @@
 
 USE chat;
 
--- CREATE TABLE users (
---   id int PRIMARY KEY AUTO_INCREMENT,
---   username text
--- );
+CREATE TABLE users (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  username text
+);
 
--- CREATE TABLE rooms (
---   id int PRIMARY KEY AUTO_INCREMENT,
---   room text
--- );
+CREATE TABLE rooms (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  room text
+);
 
 CREATE TABLE messages (
   /* Describe your table here.*/
@@ -19,13 +19,33 @@ CREATE TABLE messages (
   user_id int,
   room_id int,
   FOREIGN KEY(user_id)
-    REFERENCES users(id)
-    ON DELETE CASCADE, 
+    REFERENCES users(id), 
 
   FOREIGN KEY(room_id)
     REFERENCES rooms(id)
-    ON DELETE CASCADE
 );
+
+/*Dummy Data*/
+-- INSERT INTO rooms (room)
+--   VALUES 
+--   ('lobby');
+
+-- INSERT INTO users (username)
+--   VALUES 
+--   ('Jane');
+
+-- INSERT INTO messages 
+--   SET message = 'hello',
+--     room_id = (
+--       SELECT id 
+--       FROM rooms
+--       WHERE room = 'lobby'
+--     ),
+--     user_id = (
+--       SELECT id 
+--       FROM users
+--       WHERE username = 'Jane'
+--     );
 
 /* Create other tables and define schemas for them here! */
 
